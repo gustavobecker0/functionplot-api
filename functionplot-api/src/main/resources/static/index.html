@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Plotter</title>
+
+        <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Function Plotter</h1>
+    <p class="subtitle">
+        Generate polynomial graphs using your Spring Boot API.
+    </p>
+
+    <section class="panel">
+        <h2>Function settings</h2>
+
+        <form id="plotForm">
+            <div class="form-grid">
+                <div class="field full">
+                    <label for="coefficients">
+                        Polynomial coefficients
+                    </label>
+
+                    <input
+                            id="coefficients"
+                            type="text"
+                            value="0, 0, 1"
+                            placeholder="0, 0, 1"
+                            required
+                    >
+
+                    <span class="help">
+                        Enter coefficients from lowest to highest power.
+                        Example: 1, 2, 3 means f(x) = 1 + 2x + 3x².
+                    </span>
+                </div>
+
+                <div class="field">
+                    <label for="xMin">Minimum X</label>
+                    <input
+                            id="xMin"
+                            type="number"
+                            value="-10"
+                            step="any"
+                            required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="xMax">Maximum X</label>
+                    <input
+                            id="xMax"
+                            type="number"
+                            value="10"
+                            step="any"
+                            required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="width">Image width</label>
+                    <input
+                            id="width"
+                            type="number"
+                            value="800"
+                            min="100"
+                            max="2000"
+                            required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="height">Image height</label>
+                    <input
+                            id="height"
+                            type="number"
+                            value="600"
+                            min="100"
+                            max="2000"
+                            required
+                    >
+                </div>
+            </div>
+
+            <button id="generateButton" type="submit">
+                Generate graph
+            </button>
+
+            <div id="status" role="status" aria-live="polite"></div>
+        </form>
+    </section>
+
+    <section class="panel">
+        <h2>Generated graph</h2>
+
+        <div class="graph-container">
+            <p id="placeholder">
+                Your graph will appear here after generation.
+            </p>
+
+            <img id="graph" alt="Generated polynomial graph">
+        </div>
+    </section>
+</div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
